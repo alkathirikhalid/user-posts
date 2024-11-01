@@ -1,5 +1,6 @@
 package com.alkathirikhalid.userposts.model
 
+import java.io.Serializable
 /**
  *
  * @author alkathirikhalid
@@ -13,4 +14,4 @@ data class User(
     val url: String,
     val thumbnailUrl: String,
     val postCount: Int = 0 // Added postCount property
-)
+) : Serializable
