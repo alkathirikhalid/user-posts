@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_margin="2dp"
-        android:onClick="@{(view) -> listener.onUserClicked(user.userId, view)}"
+        android:onClick="@{(view) -> listener.onUserClicked(user, view)}"
         android:orientation="horizontal">
 
         <ImageView

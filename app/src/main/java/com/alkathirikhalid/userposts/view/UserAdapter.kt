@@ -50,8 +50,8 @@ class UserAdapter(private val users: ArrayList<User>) :
         val binding: UserItemLayoutBinding = UserItemLayoutBinding.bind(view)
     }
 
-    override fun onUserClicked(userId: Int, view: View) {
+    override fun onUserClicked(user: User, view: View) {
         view.findNavController()
-            .navigate(UserFragmentDirections.actionUserFragmentToPostFragment(userId))
+            .navigate(UserFragmentDirections.actionUserFragmentToPostFragment(user))
     }
 }
