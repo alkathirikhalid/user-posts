@@ -32,6 +32,7 @@ class UserViewModel(application: Application) : BaseViewModel(application) {
                 }
                 .collect { data ->
                     users.value = data
+                    loading.value = false
                 }
         }
     }

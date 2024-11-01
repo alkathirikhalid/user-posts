@@ -11,5 +11,6 @@ data class User(
     val userId: Int,
     val name: String,
     val url: String,
-    val thumbnailUrl: String
+    val thumbnailUrl: String,
+    val postCount: Int = 0 // Added postCount property
 )

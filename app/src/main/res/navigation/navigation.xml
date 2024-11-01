@@ -18,6 +18,10 @@
         <action
             android:id="@+id/action_detailFragment_to_listFragment"
             app:destination="@id/UserFragment" />
+        <argument
+            android:name="userId"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
 </navigation>
