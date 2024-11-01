@@ -1,7 +1,8 @@
-package com.alkathirikhalid.userposts
+package com.alkathirikhalid.userposts.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.alkathirikhalid.userposts.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
