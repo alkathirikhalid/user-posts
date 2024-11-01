@@ -53,9 +53,16 @@ class UserViewModel(application: Application) : BaseViewModel(application) {
                     // Calculate post count for each userId
                     val postCounts = data.groupingBy { it.userId }.eachCount()
 
-                    // Update users list with post counts
+                    // Match and add the users' posts
+                    val postsByUserId = data.groupBy { it.userId }
+
+                    // Update users list with post counts and posts
                     users.value = users.value?.map { user ->
-                        user.copy(postCount = postCounts[user.userId] ?: 0)
+                        val userPosts = postsByUserId[user.userId] ?: emptyList()
+                        user.copy(
+                            postCount = postCounts[user.userId] ?: 0,
+                            posts = userPosts // Add the list of posts
+                        )
                     }
 
                     loading.value = false

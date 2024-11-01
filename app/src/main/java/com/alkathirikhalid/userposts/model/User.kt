@@ -16,5 +16,6 @@ data class User(
     val name: String,
     val url: String,
     val thumbnailUrl: String,
-    val postCount: Int = 0 // Added postCount property
+    val postCount: Int = 0,
+    val posts: List<Post> = emptyList()
 ) : Parcelable
