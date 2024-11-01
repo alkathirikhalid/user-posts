@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alkathirikhalid.userposts.databinding.FragmentPostBinding
+import com.alkathirikhalid.userposts.model.Post
 import com.alkathirikhalid.userposts.model.User
 import com.alkathirikhalid.userposts.viewmodel.PostViewModel
 
@@ -27,6 +29,8 @@ class PostFragment : Fragment() {
 
     private val viewModel: PostViewModel by activityViewModels()
 
+    private val postAdapter = PostAdapter(arrayListOf()) // empty
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +44,15 @@ class PostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.fetched(args.user)
+
+        binding.rvPosts.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = postAdapter
+        }
+
+
+
+
         observeViewModel()
     }
 
@@ -47,6 +60,8 @@ class PostFragment : Fragment() {
         viewModel.user.observe(viewLifecycleOwner) { user: User ->
             user.let {
                 binding.user = user
+                postAdapter.refreshClear()
+                postAdapter.updatePosts(user.posts as ArrayList<Post>)
             }
         }
     }
