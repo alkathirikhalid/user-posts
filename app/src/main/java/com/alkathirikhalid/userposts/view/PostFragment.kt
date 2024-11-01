@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.alkathirikhalid.userposts.R
-import com.alkathirikhalid.userposts.model.User
 
 /**
  *
@@ -17,7 +17,7 @@ import com.alkathirikhalid.userposts.model.User
  */
 
 class PostFragment : Fragment() {
-
+    private val args: PostFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +29,8 @@ class PostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //val user = args.user
-        val user = arguments?.getSerializable("user") as User?
+        val user = args.user
+        //val user = arguments?.getSerializable("user") as User?
         if (user != null) {
             Log.d("USER Kaled: ", user.name)
         }

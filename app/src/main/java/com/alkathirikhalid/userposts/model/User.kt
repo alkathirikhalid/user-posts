@@ -1,12 +1,15 @@
 package com.alkathirikhalid.userposts.model
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 /**
  *
  * @author alkathirikhalid
  * @project User Posts
  * @date 01/11/2024
  */
+@Parcelize
 data class User(
     val albumId: Int,
     val userId: Int,
@@ -14,4 +17,4 @@ data class User(
     val url: String,
     val thumbnailUrl: String,
     val postCount: Int = 0 // Added postCount property
-) : Serializable
+) : Parcelable
