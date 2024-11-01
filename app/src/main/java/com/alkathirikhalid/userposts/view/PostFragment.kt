@@ -1,13 +1,15 @@
 package com.alkathirikhalid.userposts.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
-import com.alkathirikhalid.userposts.R
+import com.alkathirikhalid.userposts.databinding.FragmentPostBinding
+import com.alkathirikhalid.userposts.model.User
+import com.alkathirikhalid.userposts.viewmodel.PostViewModel
 
 /**
  *
@@ -17,24 +19,36 @@ import com.alkathirikhalid.userposts.R
  */
 
 class PostFragment : Fragment() {
+
     private val args: PostFragmentArgs by navArgs()
+
+    private var _binding: FragmentPostBinding? = null
+    private val binding get() = _binding!! // This property is only valid between onCreateView and onDestroyView.
+
+    private val viewModel: PostViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post, container, false)
+        _binding = FragmentPostBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user = args.user
-        //val user = arguments?.getSerializable("user") as User?
-        if (user != null) {
-            Log.d("USER Kaled: ", user.name)
+
+        viewModel.fetched(args.user)
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.user.observe(viewLifecycleOwner) { user: User ->
+            user.let {
+                binding.user = user
+            }
         }
-        // Use the user object as needed
     }
 
 }
