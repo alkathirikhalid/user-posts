@@ -6,12 +6,14 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.alkathirikhalid.userposts.R
+import com.alkathirikhalid.userposts.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var navController: NavController
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(ActivityMainBinding.inflate(layoutInflater).root)
         navController = Navigation.findNavController(this, R.id.fragmentContainerView)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
