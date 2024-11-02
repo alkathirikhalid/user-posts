@@ -29,11 +29,8 @@ data class Post(
         parcel.writeString(body)
     }
 
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<Post> {
+    override fun describeContents(): Int = 0
+    class PostCreator : Parcelable.Creator<Post> {
         override fun createFromParcel(parcel: Parcel): Post {
             return Post(parcel)
         }
