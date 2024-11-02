@@ -1,4 +1,4 @@
-package com.alkathirikhalid.userposts.view
+package com.alkathirikhalid.userposts.view.user
 
 import android.view.View
 import com.alkathirikhalid.userposts.model.User

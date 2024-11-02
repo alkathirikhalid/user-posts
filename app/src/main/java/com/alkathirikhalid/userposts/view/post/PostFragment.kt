@@ -1,4 +1,4 @@
-package com.alkathirikhalid.userposts.view
+package com.alkathirikhalid.userposts.view.post
 
 import android.os.Bundle
 import android.view.LayoutInflater

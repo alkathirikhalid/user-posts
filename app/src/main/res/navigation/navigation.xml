@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/UserFragment"
-        android:name="com.alkathirikhalid.userposts.view.UserFragment"
+        android:name="com.alkathirikhalid.userposts.view.user.UserFragment"
         android:label="Users">
         <action
             android:id="@+id/action_UserFragment_to_PostFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/PostFragment"
-        android:name="com.alkathirikhalid.userposts.view.PostFragment"
+        android:name="com.alkathirikhalid.userposts.view.post.PostFragment"
         android:label="Posts">
         <action
             android:id="@+id/action_detailFragment_to_listFragment"

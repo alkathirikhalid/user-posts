@@ -9,7 +9,7 @@
 
         <variable
             name="listener"
-            type="com.alkathirikhalid.userposts.view.UserClickListener" />
+            type="com.alkathirikhalid.userposts.view.user.UserClickListener" />
 
     </data>
 
